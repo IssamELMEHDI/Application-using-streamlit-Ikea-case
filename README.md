@@ -19,7 +19,7 @@
 
   <div align="center">
 
-### Proposed by: Anas BENNANI
+### Proposed by: Mohamed DRISSI BAKHKHAT
 
   </div>
 
