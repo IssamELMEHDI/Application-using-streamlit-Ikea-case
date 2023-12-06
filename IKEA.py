@@ -31,3 +31,25 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
+st.image('images\ikea photo.jpg')
+
+
+
+st.markdown("""
+---
+
+<div align="center">
+
+
+Bienvenue sur le Portail d'Analyse IKEA, votre destination pour explorer et comprendre en profondeur les tendances et les dynamiques autour des produits IKEA. À travers des analyses approfondies et des dashboards interactifs, cette plateforme offre un aperçu captivant du comportement des consommateurs, des variations de prix, de la disponibilité en ligne, et bien plus encore.
+  
+---
+### Realized by: Issam EL MEHDI
+            
+</div>""",unsafe_allow_html=True)
+
+
+
+
+
