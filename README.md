@@ -1,6 +1,6 @@
 # Formula 1 Streamlit Application
 <div align="center">
-  <img src="https://raw.githubusercontent.com/elghallali/formula-1-streamlit-app/master/images/image.webp" title="Image" alt="Image" width="400"/>
+  <img src="https://raw.githubusercontent.com/IssamELMEHDI/Application-using-streamlit-Ikea-case/master/images/ikea%20photo.jpg" title="Image" alt="Image" width="400"/>
 </div>
 
 <div>
