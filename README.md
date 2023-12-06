@@ -52,3 +52,37 @@
 #### Create a new folder in your PC and open it in your Command Prompt (cmd)  
 
 #### Clone code source from github repository
+
+```cmd
+https://github.com/IssamELMEHDI/Application-using-streamlit-Ikea-case.git
+```
+#### Change directory
+
+```cmd
+cd Application-using-streamlit-Ikea-case
+```
+#### Create a Virtual environment
+
+```cmd
+python -m venv venv 
+```
+
+#### Activate the virtual environment
+
+```cmd
+.\venv\Scripts\activate
+```
+
+#### Install the requirements
+
+```cmd
+pip install -r requirements.txt
+```
+
+#### Run the application
+
+```cmd
+streamlit run app.py
+```
+
+---
