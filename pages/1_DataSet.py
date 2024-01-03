@@ -7,6 +7,8 @@ import os
 import io
 import warnings
 
+from ETL.Data import factTable,data
+
 warnings.filterwarnings('ignore')
 
 path_file = os.getcwd() + '/images/ikea logo.png'
@@ -32,9 +34,33 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-data = pd.read_csv(os.getcwd()+'/data/ikea.csv')
-options = st.multiselect(
-            'DataFrame Columns',
-            list(data.columns),list(data.columns))
-st.dataframe(data[options])
+data = data
+
+st.header('Dataset')
+
+def visualDataFrame(df):
+    options = st.multiselect(
+        '',
+        list(df.columns),list(df.columns))
+    tab1, tab2, tab3, tab4 = st.tabs([":card_file_box: Data", "Types", 'NAN', 'Info'])
+    with tab1:
+        st.subheader("A tab with a data")
+        st.dataframe(df[options])
+    with tab2:
+        st.subheader("Column type :")
+        st.text(df[options].dtypes)
+    with tab3:
+        st.subheader("Null values :")
+        st.text(df[options].isna().sum())
+    with tab4:
+        st.subheader('DataFrame Info')
+        buffer = io.StringIO()
+        df[options].info(buf=buffer)
+        s = buffer.getvalue()
+        st.text(s)
+    
+visualDataFrame(data)
+
+st.header('Dataset après ETL Process')
+visualDataFrame(factTable(data))
 

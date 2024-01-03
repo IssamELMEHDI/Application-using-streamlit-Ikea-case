@@ -48,7 +48,7 @@ def factTable(data):
     #data=pd.merge(data,median_size,on='category')
     data=Transforms(data,median_size,'category').transform_state()
     data['depth']=data['depth'].fillna(data['medianDepth'])
-    data['height']=data['heigth'].fillna(data['medianHeight'])
+    data['height']=data['height'].fillna(data['medianHeight'])
     data['width']=data['width'].fillna(data['medianHeight'])
 
     data.drop(['medianDepth','medianHeight','medianWidth'],axis=1 ,inplace=True)
