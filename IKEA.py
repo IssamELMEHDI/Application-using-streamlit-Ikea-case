@@ -7,6 +7,9 @@ import os
 import io
 import warnings
 
+from ETL.Data import factTable,data
+from ETL.Leads import Loads
+
 warnings.filterwarnings('ignore')
 
 path_file = os.getcwd() + '/images/ikea logo.png'
@@ -49,12 +52,12 @@ Bienvenue sur le Portail d'Analyse IKEA, votre destination pour explorer et comp
             
 </div>""",unsafe_allow_html=True)
 
-
+data=data
 # test load
 
 data_load=st.button('data load')
 if data_load:
-    Loads(factTable(df),'data/','ikeaLoad.csv').send_to_csv()
+    Loads(factTable(data),'data/','ikeaLoad.csv').send_to_csv()
 
 
 
