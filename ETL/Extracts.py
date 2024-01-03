@@ -5,7 +5,7 @@ class Extracts:
         self.datasource = datasource
         self.extension = extension #exp(csv)
         
-     def __read_csv_file(self, sep=','):
+    def __read_csv_file(self, sep=','):
         df = pd.read_csv(filepath_or_buffer=self.datasource, sep=sep)
         return df
     
