@@ -36,7 +36,7 @@ class Extracts:
         elif self.extension in ['csv', 'txt']:
             return self.__read_csv_file()
         elif self.extension == 'tsv':
-            return self.__read_csv_file(sep='   ')
+            return self.__read_csv_file(sep='   ') #c'est a dire finma kant tabulation delete
         elif self.extension == 'json':
             return self.__read_json_file()
         elif self.extension == 'html':

@@ -50,6 +50,11 @@ Bienvenue sur le Portail d'Analyse IKEA, votre destination pour explorer et comp
 </div>""",unsafe_allow_html=True)
 
 
+# test load
+
+data_load=st.button('data load')
+if data_load:
+    Loads(factTable(df),'data/','ikeaLoad.csv').send_to_csv()
 
 
 
