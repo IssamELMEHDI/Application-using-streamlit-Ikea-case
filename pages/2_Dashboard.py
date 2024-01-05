@@ -47,9 +47,15 @@ GROUP BY name , price
     price_for_products=duckdb_connection.execute(price).df()
     histogram(x=price_for_products['Produits'],y=price_for_products['Price'],title='prix par produit')
 
-    
-#with cols1[1]:    
-    #scatter()
+with cols1[1]:
+    nueage_du_point_query= f'''
+    SELECT width AS Width, height AS Height, depth AS Depth, name AS Produit
+    FROM data
+
+'''
+    nueage_du_point = duckdb_connection.execute(nueage_du_point_query).df()   
+    scatter(nueage_du_point, 'Width', 'Height', 'Produit', 'Depth')   
+
 with cols1[2]:
     price=f'''
 SELECT name AS Produits, category AS Category FROM data 
@@ -67,10 +73,24 @@ GROUP BY price , category
     price_for_category=duckdb_connection.execute(box).df()
     boxPlot(x=price_for_category['prix'],y=price_for_category['Category'],df=price_for_category)
 
+#with cols2[1]:
+#    sellabe_online_category_query=f"""
+#    SELECT SUM(sellable_online),category FROM data
+#    GROUP BY sellable_online,category
+#    """
+#    sellabe_online_category=duckdb_connection.execute(sellabe_online_category_query).df()
+#    pie(sellabe_online_category,'category','sellabe_online')
+
 with cols2[1]:
-    sellabe_online_category_query=f"""
-    SELECT sellable_online,category FROM data
-    GROUP BY sellable_online,category
+    # Sample DuckDB query
+    sellable_online_category_query = """
+    SELECT sellable_online, category, COUNT(*) AS count
+    FROM data
+    GROUP BY sellable_online, category;
     """
-    sellabe_online_category=duckdb_connection.execute(sellabe_online_category_query).df()
-    pie(sellabe_online_category,'category','sellabe_online')
+
+    # Execute the query and obtain a DataFrame
+    sellable_online_category = duckdb_connection.execute(sellable_online_category_query).fetchdf()
+
+    # Use the pie function with the DuckDB data
+    pie(sellable_online_category, 'category', 'count')
